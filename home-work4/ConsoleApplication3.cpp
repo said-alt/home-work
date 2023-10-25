@@ -1,26 +1,23 @@
 ﻿#include <iostream>
-using namespace std;
 
-int fid(int n) {
-    if (n <= 0) {
-        return 0;
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
     }
-    else if (n == 1) {
-        return 1;
-    }
-    else {
-        return fid(n - 1) + fid(n - 2);
-    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 int main() {
-    setlocale(LC_ALL, "russian");
     int N;
-    cout << "Введите N: ";
-    cin >> N;
+    std::cin >> N;
 
-    int result = fid(N);
-    cout << N << "-е число Фибоначчи: " << result << endl;
+    if (N < 0 || N > 30) {
+       
+        return 1;
+    }
+
+    int result = fibonacci(N);
+    std::cout << result << std::endl;
 
     return 0;
 }
